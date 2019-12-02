@@ -5,6 +5,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: sans-serif;
+    overflow:auto;
 }
 
 iframe {
@@ -26,7 +27,7 @@ iframe {
 
 .options {
     box-sizing: border-box;
-    flex: 0 0 300px;
+    flex: 0 0 400px;
     padding: 30px;
     overflow: auto;
 }
@@ -104,3 +105,31 @@ iframe {
     display: block;
     margin-top: 4px;
 }
+
+/****select dropdown degsin***/
+
+input[type="checkbox"] {
+    width: 41px;
+    height: 26px;
+}
+
+.option--select select {
+  background-color: #24a0ed;
+  color: white;
+  padding: 6px;
+  width: 195px;
+  border: none;
+  font-size: 19px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  outline: none;
+  margin-left:5px;
+}
+.option__control{
+    margin-left:5px;
+}
+
+.option--select select option {
+  padding: 30px;
+}
+
