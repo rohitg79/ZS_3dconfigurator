@@ -167,6 +167,8 @@ var success = function(api) {
                 api.hide(380);
                 //waterline front
                 api.hide(57);
+                api.show(348); //extin
+                api.show(336);
             });
             document.getElementById('active1').addEventListener('click', function() {
                 document.getElementById("active2").classList.remove("w--current");
@@ -230,10 +232,20 @@ var success = function(api) {
                 document.getElementById("act4").classList.remove("w--current");
                 document.getElementById("act5").classList.remove("w--current");
                 //condition
+                api.show(348); //extin
+                api.show(336);
+                api.show(5);
+                //api.show(6);
+                //api.show(21);
+
+                api.show(150); //clsoe roof
+                api.show(321); //close roof
+
                 api.show(369);  //front vent
                 api.show(46);  //rear vent
                 api.hide(380); //roof close
                 api.hide(57);   //roof close
+
                 });
             //vent
             document.getElementById('act2').addEventListener('click', function() {
@@ -250,8 +262,6 @@ var success = function(api) {
                 api.hide(369);  //front vent
                 api.hide(46);  //rear vent
                 
-                //front extin
-                api.hide(336);
                 api.show(165);
 
                 //conditions
@@ -259,6 +269,8 @@ var success = function(api) {
                 api.show(321); //roof close
                 api.hide(380); // waterline
                 api.hide(57);  //waterline
+                api.hide(348); //extin
+                api.hide(336); //extin
 
              });
              
@@ -284,7 +296,8 @@ var success = function(api) {
                 api.show(46);  //rear vent
                 
                 //front extin
-                api.show(336);
+                api.hide(336);
+                api.hide(348); //extin
             });
 
             //openroof
@@ -299,8 +312,12 @@ var success = function(api) {
                 api.hide(321);
 
                 //condition
-                api.hide(380);
-                api.hide(57);
+                api.hide(380); //waterlin
+                api.hide(57); //waterline
+               
+                api.hide(348); //extin
+                api.hide(336);
+                api.hide(5);
             });
             //closeroof
             document.getElementById('act5').addEventListener('click', function() {
@@ -311,6 +328,13 @@ var success = function(api) {
                 document.getElementById("act2").classList.remove("w--current");
                 api.show(150);
                 api.show(321);
+
+                api.hide(348); //extin
+                api.hide(336); //extin
+                api.hide(5);
+
+                api.hide(380); // waterline
+                api.hide(57);  //waterline
             });
            
 
