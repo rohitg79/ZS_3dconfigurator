@@ -119,6 +119,12 @@ var success = function(api) {
             document.getElementById('active2').addEventListener('click', function() {
                 document.getElementById("active1").classList.remove("w--current");
                 document.getElementById("active2").classList.add("w--current");
+
+                document.getElementById("act1").classList.add("w--current");
+                document.getElementById("act2").classList.remove("w--current");
+                document.getElementById("act3").classList.remove("w--current");
+                document.getElementById("act4").classList.remove("w--current");
+                document.getElementById("act5").classList.remove("w--current");
                 api.hide(1024);
                 api.show(5); 
                 
@@ -173,6 +179,12 @@ var success = function(api) {
             document.getElementById('active1').addEventListener('click', function() {
                 document.getElementById("active2").classList.remove("w--current");
                 document.getElementById("active1").classList.add("w--current");
+
+                document.getElementById("act1").classList.add("w--current");
+                document.getElementById("act2").classList.remove("w--current");
+                document.getElementById("act3").classList.remove("w--current");
+                document.getElementById("act4").classList.remove("w--current");
+                document.getElementById("act5").classList.remove("w--current");
                 api.hide(5); 
                 api.show(1024); 
                 api.hide(6);
