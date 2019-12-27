@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchfab Configurator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="vr" width="640"
+            height="400"></iframe>
+        <div class="options"></div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.3.0.js"></script>
+<script type="text/javascript" src="./SketchfabConfigurator-1.0.6.js"></script>
+<script type="text/javascript">
+    var config = {
+    "model": "a70d0e6fc7a34cc7b304ca523d992d7d",
+    "params": {
+        "camera": 0,
+        "preload": 1,
+        "ui_controls": 0,
+        "ui_infos": 0,
+        "ui_watermark": 0
+    },
+    "config": [
+        {
+            "name": "vent",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Wheels",
+                    "selector": "[instance=\"803\"]"
+                },
+                {
+                    "name": "TabletMount1",
+                    "selector": "[instance=\"959\"]"
+                },
+                {
+                    "name": "Bose5Speaker_mesh2",
+                    "selector": "[instance=\"1187\"]"
+                },
+                {
+                    "name": "TV",
+                    "selector": "[instance=\"841\"]"
+                },
+                {
+                    "name": "TabletFront",
+                    "selector": "[instance=\"513\"]"
+                }
+            ],
+            "default": 3
+        }
+    ]
+};
+    var iframeEl = document.getElementById('api-frame');
+    var optionsEl = document.querySelector('.options');
+    var configurator = new SketchfabConfigurator.Configurator(iframeEl, optionsEl, config);
+</script>
+
+</html>

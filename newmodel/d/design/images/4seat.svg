@@ -1,0 +1,12 @@
+<svg width="50" height="47" viewBox="0 0 50 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 4H21C21.5523 4 22 4.44771 22 5V42C22 42.5523 21.5523 43 21 43H1V4Z" fill="white" stroke="#C0C5CB" stroke-width="2"/>
+<path d="M7 6H6V7V40V41H7H13C13.5523 41 14 41.4477 14 42V45C14 45.5523 13.5523 46 13 46H8.33333H2C1.44772 46 1 45.5523 1 45V2C1 1.44772 1.44772 1 2 1H13C13.5523 1 14 1.44772 14 2V5C14 5.55228 13.5523 6 13 6H7Z" fill="white" stroke="#C0C5CB" stroke-width="2"/>
+<rect x="14" y="31" width="2" height="2" fill="#C0C5CB"/>
+<rect x="14" y="13" width="2" height="2" fill="#C0C5CB"/>
+<rect x="5" y="23" width="18" height="1" fill="#C0C5CB"/>
+<path d="M49 4H29C28.4477 4 28 4.44771 28 5V42C28 42.5523 28.4477 43 29 43H49V4Z" fill="white" stroke="#C0C5CB" stroke-width="2"/>
+<path d="M43 6H44V7V40V41H43H37C36.4477 41 36 41.4477 36 42V45C36 45.5523 36.4477 46 37 46H41.6667H48C48.5523 46 49 45.5523 49 45V2C49 1.44772 48.5523 1 48 1H37C36.4477 1 36 1.44772 36 2V5C36 5.55228 36.4477 6 37 6H43Z" fill="white" stroke="#C0C5CB" stroke-width="2"/>
+<rect width="2" height="2" transform="matrix(-1 0 0 1 36 31)" fill="#C0C5CB"/>
+<rect width="2" height="2" transform="matrix(-1 0 0 1 36 13)" fill="#C0C5CB"/>
+<rect width="18" height="1" transform="matrix(-1 0 0 1 45 23)" fill="#C0C5CB"/>
+</svg>

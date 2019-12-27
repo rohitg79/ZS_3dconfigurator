@@ -1,0 +1,65 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.viewer{
+    display: block;
+    width: 100%;
+    height: calc(100% - 60px);
+}
+    #api-frame {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    .viewer .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+.score {
+    position: absolute;
+    left: 30px;
+    top: 90px;
+    font-size: 36px;
+    color: white;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+}
+
+.time {
+    position: absolute;
+    right: 30px;
+    top: 90px;
+    font-size: 36px;
+    color: white;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+}
+
+.intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 40px;
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    text-align: center;
+}
+.intro.hidden {
+    display: none;
+}
+
+    .intro img {
+        width: 100px;
+        margin-bottom: 20px;
+    }

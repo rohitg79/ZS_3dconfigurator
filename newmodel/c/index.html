@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchfab Configurator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="vr" width="640"
+            height="400"></iframe>
+        <div class="options"></div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.3.0.js"></script>
+<script type="text/javascript" src="./SketchfabConfigurator-1.0.6.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+    var config = {
+    "model": "4831a574a33148b4b7d863c428f26fc1",
+    "params": {
+        "camera": 0,
+        "preload": 1,
+        "ui_controls": 0,
+        "ui_infos": 0,
+        "ui_watermark": 0
+    },
+    "config": [
+        {
+            "name": "2 Seat SmartPod",
+            "type": "visible",
+            "selector": "[instance=\"1193\"]",
+            "default": true
+        },
+        {
+            "name": "4 Seat SmartPod",
+            "type": "visible",
+            "selector": "[instance=\"987\"]",
+            "default": false
+        },
+        {
+            "name": "2 Seat ceiling type",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Extinguisher",
+                    "selector": "[instance=\"731\"]"
+                },
+                {
+                    "name": "Vented",
+                    "selector": "[instance=\"708\"]"
+                },
+                {
+                    "name": "Water Line",
+                    "selector": "[instance=\"753\"]"
+                }
+            ],
+            "default": 0
+        },
+        {
+            "name": "4 seat ceiling types",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Extinguisher",
+                    "selector": "[instance=\"501\"]"
+                },
+                {
+                    "name": "Water Line",
+                    "selector": "[instance=\"530\"]"
+                },
+                {
+                    "name": "Vented",
+                    "selector": "[instance=\"613\"]"
+                }
+            ],
+            "default": 0
+        },
+        {
+            "name": "extinguisher front and rear",
+            "type": "visible",
+            "selector": null,
+            "default": true
+        },
+        {
+            "name": "vented  front and rear",
+            "type": "visible",
+            "selector": null,
+            "default": false
+        },
+        {
+            "name": "Water line",
+            "type": "visible",
+            "selector": null,
+            "default": false
+        }
+    ]
+};
+    var iframeEl = document.getElementById('api-frame');
+    var optionsEl = document.querySelector('.options');
+    var configurator = new SketchfabConfigurator.Configurator(iframeEl, optionsEl, config);
+
+</script>
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchfab Configurator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <iframe src="" id="api-frame"  mozallowfullscreen="true" webkitallowfullscreen="true" allow="vr" width="500"
+            height="400"></iframe>
+        <div class="options"></div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.3.0.js"></script>
+<script type="text/javascript" src="./SketchfabConfigurator-1.0.6.js"></script>
+<script type="text/javascript">
+    var config = {
+    "model": "afca614eb2d0473597ee50ba6ca1bcff",
+    "params": {
+        "camera": 0,
+        "preload": 1,
+        "ui_controls": 0,
+        "ui_infos": 0,
+        "ui_watermark": 0
+    },
+    "config": [
+        {
+            "name": "SmartPod Types",
+            "type": "select",
+            "options": [
+                {
+                    "name": "4 Seat SmartPod",
+                    "selector": "[instance=\"863\"]"
+                },
+                {
+                    "name": "2 Seat SmartPod",
+                    "selector": "[instance=\"1275\"]"
+                }
+            ],
+            "default": 1
+        },
+        {
+            "name": "Front Ceiling Type",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Water Line",
+                    "selector": "[instance=\"793\"]"
+                },
+                {
+                    "name": "Vented",
+                    "selector": "[instance=\"661\"]"
+                },
+                {
+                    "name": "Extinguisher",
+                    "selector": "[instance=\"722\"]"
+                }
+            ],
+            "default": 2
+        },
+        {
+            "name": "Front Exterior Ceiling Panel",
+            "type": "visible",
+            "selector": "[instance=\"650\"]",
+            "default": true
+        },
+        {
+            "name": "Rear Ceiling Type",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Extinguisher",
+                    "selector": "[instance=\"415\"]"
+                },
+                {
+                    "name": "Vent",
+                    "selector": "[instance=\"574\"]"
+                },
+                {
+                    "name": "Water Line",
+                    "selector": "[instance=\"504\"]"
+                },
+                {
+                    "name": "Exterior Ceiling Panel",
+                    "selector": "[instance=\"638\"]"
+                }
+            ],
+            "default": 3
+        },
+        {
+            "name": "Rear Ceiling Exterior",
+            "type": "visible",
+            "selector": "[instance=\"638\"]",
+            "default": false
+        },
+        {
+            "name": "Chair Fabric Color",
+            "type": "color",
+            "material": "Chair_Material",
+            "default": "#001851",
+            "options": [
+                {
+                    "name": "Grey",
+                    "color": "#3c3c3c",
+                    "id": 1566461069339
+                },
+                {
+                    "name": "Green",
+                    "color": "#015824",
+                    "id": 1566461069339
+                },
+                {
+                    "name": "Violet",
+                    "color": "#220525",
+                    "id": 1566461069339
+                },
+                {
+                    "name": "Microsoft Blue",
+                    "color": "#00a2ed",
+                    "id": 1566461069339
+                }
+            ]
+        },
+        {
+            "name": "Interior Wall Color",
+            "type": "color",
+            "material": "SoundPanels",
+            "default": "#444444",
+            "options": [
+                {
+                    "name": "Blue",
+                    "color": "#050c54",
+                    "id": 1566461788272
+                },
+                {
+                    "name": "Green",
+                    "color": "#043d01",
+                    "id": 1566461788272
+                },
+                {
+                    "name": "Purple",
+                    "color": "#330432",
+                    "id": 1566461788272
+                },
+                {
+                    "name": "Grey",
+                    "color": "#333333",
+                    "id": 1566461788272
+                },
+                {
+                    "name": "Light Grey",
+                    "color": "#6b6b6b",
+                    "id": 1566461788272
+                },
+                {
+                    "name": "Violet",
+                    "color": "#4b0d4d",
+                    "id": 1566461788272
+                },
+                {
+                    "name": "Microsoft Blue",
+                    "color": "#00a2ed",
+                    "id": 1566461788272
+                }
+            ]
+        },
+        {
+            "name": "Seat Support & Side Table Color",
+            "type": "color",
+            "material": "Chair_Frame",
+            "default": "#DADADA",
+            "options": [
+                {
+                    "name": "white",
+                    "color": "#d1d1d1",
+                    "id": 1566462412749
+                },
+                {
+                    "name": "Black",
+                    "color": "#111111",
+                    "id": 1566462412749
+                },
+                {
+                    "name": "Microsoft Blue",
+                    "color": "#00a2ed",
+                    "id": 1566462412749
+                }
+            ]
+        },
+        {
+            "name": "Table Color",
+            "type": "color",
+            "material": "Tabletop",
+            "default": "#DFDFDF",
+            "options": [
+                {
+                    "name": "white",
+                    "color": "#d3d3d3",
+                    "id": 1566463191382
+                },
+                {
+                    "name": "Black",
+                    "color": "#141414",
+                    "id": 1566463191382
+                },
+                {
+                    "name": "Microsoft Blue",
+                    "color": "#00a2ed",
+                    "id": 1566463191382
+                }
+            ]
+        }
+    ]
+};
+    var iframeEl = document.getElementById('api-frame');
+    var optionsEl = document.querySelector('.options');
+    var configurator = new SketchfabConfigurator.Configurator(iframeEl, optionsEl, config);
+</script>
+
+</html>

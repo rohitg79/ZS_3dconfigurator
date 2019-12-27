@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sketchfab Map</title>
+    <link rel="stylesheet" href="styles/app.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="js/leaflet/leaflet.css" />
+</head>
+
+<body>
+    <div class="app">
+        <div class="sidebar">
+            <div class="models">
+                <div class="models-header">
+                    Models tagged "meta_geo" <a href="howto.html">(How to geotag your models)</a>
+                </div>
+                <ul>
+                </ul>
+                <div class="models-more">
+                    <button>Load more</button>
+                </div>
+            </div>
+            <div class="viewer">
+            </div>
+        </div>
+        <div class="map__container">
+            <div class="map__header">
+                Double-click on the map to mark a location <button class="map__search">Find by coordinates</button>
+            </div>
+            <div class="map" id="map">
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.1/lodash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.3.0/showdown.js"></script>
+<script src="js/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="js/sketchfab-sdk.2.1.1.js"></script>
+<script type="text/javascript" src="js/latlon-geohash.js"></script>
+
+<script>
+
+var list = document.querySelector('.models');
+var map = document.querySelector('.map');
+
+var App = {
+    sketchfabSDK: new SketchfabSDK(),
+    markdownParser: new showdown.Converter(),
+    map: initMap(),
+    markers: [],
+};
+
+var state = {
+    models: [],
+    next: null
+}
+
+var tiles;
+var markerLayer;
+var newMarkerLayer;
+var newMarker;
+
+var newIcon = L.icon({
+    iconUrl: 'js/leaflet/images/marker-icon-green.png',
+    iconRetinaUrl: 'js/leaflet/images/marker-icon-green-2x.png',
+    shadowUrl: 'js/leaflet/images/marker-shadow.png',
+
+    iconSize:     [25, 41],
+    shadowSize:   [41, 41],
+    iconAnchor:   [12, 41],
+    shadowAnchor: [12, 41],
+    popupAnchor:  [0, -41]
+});
+
+function initMap() {
+
+    tiles = {
+        map: L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+        }),
+        satellite: L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    	       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        })
+    };
+
+    markerLayer = L.layerGroup();
+    newMarkerLayer = L.layerGroup();
+
+    var mymap = L.map('map', {
+        layers: [
+            tiles.satellite,
+            tiles.map,
+        ]
+    }).setView([50, 0], 5);
+
+    var baseMaps = {
+        "Satellite": tiles.satellite,
+        "Map": tiles.map,
+    };
+
+    var layerControl = L.control.layers(baseMaps, null, {
+        collapsed: false
+    });
+
+    mymap.doubleClickZoom.disable();
+    mymap.addControl(layerControl);
+    mymap.addLayer(markerLayer);
+    mymap.addLayer(newMarkerLayer);
+    return mymap;
+}
+
+function getLatLon(model) {
+    var longestHash = '';
+    var currentTag;
+
+    for (var i=0; i<model.tags.length; i++) {
+        currentTag = model.tags[i].name;
+        if (currentTag.indexOf('geo_') === 0 && currentTag.length > longestHash.length && currentTag.length <= 16) {
+            longestHash = currentTag.replace('geo_', '');
+        }
+    }
+
+    if (longestHash !== '') {
+        try {
+            var latlon = Geohash.decode(longestHash);
+            return latlon;
+        } catch( e ) {
+            console.error(e.message, longestHash, model.uid);
+        }
+    } else {
+        return false;
+    }
+}
+
+function getModelByUid(uid) {
+    return _.find(state.models, {uid: uid});
+}
+
+function fetchModels() {
+    var url = 'https://api.sketchfab.com/v3/models?sort_by=-createdAt&tags=meta_geo';
+    var promise = $.get(url);
+    promise.then(onFetchSuccess);
+}
+
+
+function loadMore() {
+    if (state.next) {
+        var url = 'https://api.sketchfab.com/v3/models?sort_by=-createdAt&tags=meta_geo&cursor=' + state.next;
+        var promise = $.get(url);
+        promise.then(onFetchSuccess);
+    } else {
+        alert('Nothing to load');
+    }
+}
+
+function onFetchSuccess(response) {
+    state.next = response.cursors.next;
+    state.models = state.models.concat(response.results.map(function(model){
+        return _.extend(model, {
+            geo: getLatLon(model)
+        });
+    }));
+
+    if (!state.next) {
+        $('.models-more').hide();
+    } else {
+        $('.models-more').show();
+    }
+
+    renderModels();
+    renderMarkers();
+}
+
+function renderMarker(model) {
+    if (model.geo) {
+        var marker = L.marker([model.geo.lat, model.geo.lon]);
+        marker.on('click', function(){
+            selectModel(model.uid);
+        });
+        marker.addTo(markerLayer);
+        return marker;
+    } else {
+        return false;
+    }
+}
+
+function renderMarkers() {
+    App.markers = state.models.map(renderMarker);
+}
+
+function renderModel(model) {
+    var thumbs = _.sortBy(_.clone(model.thumbnails.images), 'width');
+
+    var tpl = _.template([
+        '<li class="model" data-id="<%= model.uid %>">',
+            '<a href="<%= model.viewerUrl %>">',
+                '<div class="model-image">',
+                    '<img src="<%= mainImage %>" alt="" width="64" height="64">',
+                '</div>',
+                '<div class="model-info">',
+                    '<span class="model-name"><%= model.name %></span> ',
+                    '<span class="model-author">by <%= model.user.displayName %></span>',
+                '</div>',
+            '</a>',
+        '</li>'
+    ].join(''));
+
+    return tpl({
+        model: model,
+        mainImage: thumbs[2].url
+    });
+}
+
+function renderModels() {
+    var li = state.models.map(renderModel);
+    $('.models ul').html(li.join(''));
+}
+
+function selectModel(uid) {
+    var model = getModelByUid(uid);
+
+    if (model.geo) {
+        App.map.panTo([model.geo.lat, model.geo.lon]);
+    }
+
+    var tpl = _.template([
+        '<div class="viewer-info">',
+            '<div class="viewer-header">',
+                '<div><button class="back" title="Back"><img src="images/arrow-left-c.svg"> Back</button></div>',
+                '<h1><a href="<%= model.viewerUrl %>"><%= model.name %></a></h1>',
+                '<div class="viewer-meta">by <%= model.user.displayName %></div>',
+            '</div>',
+            '<div class="ratio16-9">',
+                '<div class="ratio-inner">',
+                    '<iframe src="<%= model.embedUrl %>" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>',
+                '</div>',
+            '</div>',
+            '<div class="viewer-description"><%= htmlDescription %></div>',
+        '</div>'
+    ].join(''));
+
+    var htmlDescription = App.markdownParser.makeHtml(model.description);
+    var out = tpl({
+        model: model,
+        htmlDescription: htmlDescription
+    });
+
+    $('.viewer').addClass('active');
+    setTimeout(function(){
+        $('.viewer').html(out);
+    }, 300);
+}
+
+function unselectModel() {
+    $('.viewer').removeClass('active');
+    setTimeout(function(){
+        $('.viewer').html('');
+    }, 500);
+}
+
+function setNewMarker(lat, lon) {
+    var hash = Geohash.encode(lat, lon);
+    var tags = [
+        'geo_' + hash,
+    ].join(', ');
+    var indexingTags = [
+        'geo_' + hash.substr(0,1),
+        'geo_' + hash.substr(0,2),
+        'geo_' + hash.substr(0,3),
+        'geo_' + hash.substr(0,4),
+        'geo_' + hash.substr(0,5),
+    ].join(', ');
+
+    var tpl = _.template([
+        'Coordinates:<br>',
+        '<%= geo.lat %>, <%= geo.lon %><br>',
+        '<br>',
+        '<b>How to add your model to this location</b><br>',
+        'Add the following tags to your model info:<br>',
+        '<code>meta_geo</code><br>',
+        '<code><%= tags %></code><br>',
+    ].join(''));
+
+    var content = tpl({
+        geo: {
+            lat: lat,
+            lon: lon
+        },
+        tags: tags,
+        indexingTags: indexingTags
+    });
+
+    if (!newMarker) {
+        newMarker = L.marker([lat, lon], {icon: newIcon});
+        newMarker.addTo(newMarkerLayer);
+        newMarker.bindPopup(content).openPopup();
+    }
+
+    if (newMarker) {
+        newMarker.setLatLng(L.latLng(lat, lon));
+        newMarker.getPopup().setContent(content);
+        newMarker.openPopup();
+    }
+
+}
+
+function init() {
+    fetchModels();
+
+    $('.models ul').on('click', '.model', function(e) {
+        e.preventDefault();
+        var target = $(e.currentTarget);
+        var uid = target.attr('data-id');
+        selectModel(uid);
+    });
+
+    $('.models-more button').on('click', function(e){
+        e.preventDefault();
+        loadMore();
+    });
+
+    $('.viewer').on('click', '.back', function(e){
+        e.preventDefault();
+        unselectModel();
+    });
+
+    $('.map__search').on('click', function(e){
+        e.preventDefault();
+        var value = window.prompt('Enter coordinates (latitude and longitude separated by comma)');
+        if (value) {
+            var coordinates = value.split(',').map(function(value){
+                return parseFloat(value);
+            });
+            if (coordinates.length === 2) {
+                setNewMarker(coordinates[0], coordinates[1]);
+            }
+        }
+    });
+
+    App.map.on('dblclick', function(e){
+        setNewMarker(e.latlng.lat, e.latlng.lng);
+    });
+}
+
+init();
+
+</script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-22680456-16', 'auto');
+ga('send', 'pageview');
+</script>
+</body>
+</html>

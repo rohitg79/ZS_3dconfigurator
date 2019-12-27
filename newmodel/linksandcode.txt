@@ -1,0 +1,66 @@
+http://zen3dconfigurator.herokuapp.com/roi/
+
+https://github.com/rohitg79/ZS_3dconfigurator/tree/dev-test
+
+
+var rem = document.getElementsByClassName("extinguisher-front-and-rear");
+if(rem!=null && rem.checked){alert("checked");}else{alert("nothing");}
+
+http://localhost:8888/newmodel/c/
+
+
+
+
+
+Code for roi pdf 
+
+https://www.c-sharpcorner.com/blogs/how-to-convert-html-with-css-to-pdf-using-javascript
+
+
+https://github.com/rohitg79/ZS_3dconfigurator/blob/dev-test/roi/index.html
+
+Sketchup trial model
+
+https://www.sketchup.com/download/my-apps?from=personal&os=mac
+
+Screenshot
+https://labs.sketchfab.com/experiments/screenshots
+
+http://localhost:8888/gittesting/experiments-master/configurator/
+
+Checkbox
+https://stackoverflow.com/questions/9709209/html-select-only-one-checkbox-in-a-group
+
+Sketchfab model configurator studio
+https://labs.sketchfab.com/experiments/configurator-studio/
+
+New design 
+https://3d-configurator.webflow.io/
+
+
+
+3D model changes js
+
+https://github.com/sketchfab/experiments/tree/master/configurator
+
+https://github.com/sketchfab/experiments/blob/master/configurator/index.html
+
+
+2-4seat model with annotation
+https://sketchfab.com/3d-models/2-4-seat-zenspace-configurator-4831a574a33148b4b7d863c428f26fc1
+
+
+
+Git all details links
+https://github.com/sketchfab/experiments
+
+
+https://zen3dconfigurator.herokuapp.com/index.html
+
+
+
+GIT
+
+git add .a
+Git commit -m “comment”’
+Git push origin master

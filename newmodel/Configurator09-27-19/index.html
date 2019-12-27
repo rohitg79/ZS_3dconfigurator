@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchfab Configurator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="vr" width="640"
+            height="400"></iframe>
+        <div class="options"></div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.3.0.js"></script>
+<script type="text/javascript" src="./SketchfabConfigurator-1.0.6.js"></script>
+<script type="text/javascript">
+    var config = {
+    "model": "4831a574a33148b4b7d863c428f26fc1",
+    "params": {
+        "camera": 0,
+        "preload": 1,
+        "ui_controls": 0,
+        "ui_infos": 0,
+        "ui_watermark": 0
+    },
+    "config": [
+        {
+            "name": "SmartPod Size",
+            "type": "select",
+            "options": [
+                {
+                    "name": "2 Seat",
+                    "selector": "[instance=\"1109\"]"
+                },
+                {
+                    "name": "4 Seat",
+                    "selector": "[instance=\"903\"]"
+                }
+            ],
+            "default": 0
+        },
+        {
+            "name": "Rear Roof Options On/Off",
+            "type": "visible",
+            "selector": "[instance=\"417\"]",
+            "default": false
+        },
+        {
+            "name": "Front Exterior Roof On/Off",
+            "type": "visible",
+            "selector": "[instance=\"636\"]",
+            "default": true
+        },
+        {
+            "name": "Rear Exterior Roof On/Off",
+            "type": "visible",
+            "selector": "[instance=\"518\"]",
+            "default": true
+        },
+        {
+            "name": "Front Roof Type",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Open",
+                    "selector": "[instance=\"583\"]"
+                },
+                {
+                    "name": "Water Piped",
+                    "selector": "[instance=\"669\"]"
+                },
+                {
+                    "name": "Extinguisher",
+                    "selector": "[instance=\"647\"]"
+                },
+                {
+                    "name": "Vented",
+                    "selector": "[instance=\"624\"]"
+                }
+            ],
+            "default": 0
+        },
+        {
+            "name": "Rear Roof Type",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Open",
+                    "selector": "[instance=\"468\"]"
+                },
+                {
+                    "name": "Water Piped",
+                    "selector": "[instance=\"446\"]"
+                },
+                {
+                    "name": "Extinguisher",
+                    "selector": "[instance=\"418\"]"
+                },
+                {
+                    "name": "Vented",
+                    "selector": "[instance=\"529\"]"
+                }
+            ],
+            "default": 0
+        },
+        {
+            "name": "Interior Wall Color",
+            "type": "color",
+            "material": "SoundPanels",
+            "default": "#727272",
+            "options": [
+                {
+                    "name": "Teal",
+                    "color": "#005984",
+                    "id": 1569570337012
+                },
+                {
+                    "name": "Light Grey",
+                    "color": "#737373",
+                    "id": 1569570337012
+                },
+                {
+                    "name": "Grey",
+                    "color": "#4b4b4b",
+                    "id": 1569570337012
+                },
+                {
+                    "name": "Blue",
+                    "color": "#00468c",
+                    "id": 1569570337012
+                },
+                {
+                    "name": "Red",
+                    "color": "#660000",
+                    "id": 1569570337012
+                },
+                {
+                    "name": "Violet",
+                    "color": "#620062",
+                    "id": 1569570337012
+                }
+            ]
+        },
+        {
+            "name": "Seat Fabric Color",
+            "type": "color",
+            "material": "Chair_Material",
+            "default": "#1B1492",
+            "options": [
+                {
+                    "name": "White",
+                    "color": "#b2b2b2",
+                    "id": 1569570509803
+                },
+                {
+                    "name": "Grey",
+                    "color": "#737373",
+                    "id": 1569570509803
+                },
+                {
+                    "name": "Teal",
+                    "color": "#006f6b",
+                    "id": 1569570509803
+                },
+                {
+                    "name": "Blue",
+                    "color": "#00336c",
+                    "id": 1569570509803
+                },
+                {
+                    "name": "Red",
+                    "color": "#6a0000",
+                    "id": 1569570509803
+                },
+                {
+                    "name": "Purple",
+                    "color": "#4f036b",
+                    "id": 1569570509803
+                },
+                {
+                    "name": "ZenBlue",
+                    "color": "#0a0a94",
+                    "id": 1569570509803
+                }
+            ]
+        },
+        {
+            "name": "Exterior Color",
+            "type": "color",
+            "material": "WhiteExt",
+            "default": "#eaeaea",
+            "options": [
+                {
+                    "name": "White",
+                    "color": "#e4e4e4",
+                    "id": 1569570984207
+                },
+                {
+                    "name": "Black",
+                    "color": "#1b1b1b",
+                    "id": 1569570984207
+                }
+            ]
+        },
+        {
+            "name": "Interior Accent Color",
+            "type": "color",
+            "material": "Chair_Frame",
+            "default": "#BFBFBF",
+            "options": [
+                {
+                    "name": "White",
+                    "color": "#b5b5b5",
+                    "id": 1569571384158
+                },
+                {
+                    "name": "Black",
+                    "color": "#272727",
+                    "id": 1569571384158
+                }
+            ]
+        }
+    ]
+};
+    var iframeEl = document.getElementById('api-frame');
+    var optionsEl = document.querySelector('.options');
+    var configurator = new SketchfabConfigurator.Configurator(iframeEl, optionsEl, config);
+</script>
+
+</html>

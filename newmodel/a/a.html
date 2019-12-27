@@ -1,0 +1,177 @@
+<!-- Some divs to wrap the model iframes and two buttons -->
+<body>
+    <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <div class="buttons">
+        <button id="zoom-in">+</button>
+        <button id="zoom-out">-</button>
+    </div>
+
+    <!-- The API -->
+    <script src="https://d2f25wgezub9nf.cloudfront.net/api/sketchfab-viewer-1.0.0.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Your new script -->
+    <script>
+        // Model
+        var model = '8e393b13228d43e894301e5aa6b62805',
+
+            // Buttons
+            buttonZoomIn = $( '#zoom-in' )[ 0 ],
+            buttonZoomOut = $( '#zoom-out' )[ 0 ],
+            
+            // API version
+            version = '1.0.0',
+            
+            // The iframe
+            iframe = $( '#api-frame' )[ 0 ],
+            
+            // The API client object
+            client = new Sketchfab( version, iframe ),
+
+            // The API object
+            api,
+            
+            // Defining error and success outside initialization, for easy reading
+            error = function () {
+                console.error( 'Sketchfab API Error!' );
+            },
+            
+            // If initilization succeeds, start the model immediately
+            success = function( callback ) {
+                api = callback;
+                api.start();
+                // Wait for viewer to be ready
+                api.addEventListener( 'viewerready', function() {
+
+                    var duration = 2,
+                        factor = 0.5,
+                        minRadius = 2,
+                        maxRadius = 10;
+
+                    api.zoom = function( factor, duration, minRadius, maxRadius ) {
+                        api.getCameraLookAt( function( err, camera ) {
+                            if ( !err ) {
+                                var currentPos = camera.position,
+                                    x = currentPos[ 0 ],
+                                    y = currentPos[ 1 ],
+                                    z = currentPos[ 2 ],
+
+                                    target = camera.target,
+                                    
+                                    rho = Math.sqrt( ( x * x ) + ( y * y ) + ( z * z ) ),
+                                    phi,
+                                    theta;
+
+                                if ( isNaN( minRadius ) ) {
+                                    minRadius = 0.1;
+                                }
+
+                                if ( isNaN( maxRadius ) ) {
+                                    maxRadius = Infinity;
+                                }
+
+                                if ( rho === minRadius || rho === maxRadius ) {
+                                    return;
+                                }
+
+                                rho = ( rho * factor );
+
+                                if ( rho < minRadius && factor < 1 ) {
+                                    rho = minRadius;
+                                }
+
+                                else if ( rho > maxRadius && factor > 1 ) {
+                                    rho = maxRadius;
+                                }
+
+                                phi = Math.atan2( y, x );
+                                theta = Math.atan2( ( Math.sqrt( ( x * x ) + ( y * y ) ) ), z );
+
+                                x = ( rho * Math.sin( theta ) * Math.cos( phi ) );
+                                y = ( rho * Math.sin( theta ) * Math.sin( phi ) );
+                                z = ( rho * Math.cos( theta ) );
+
+                                api.setCameraLookAt( [ x, y, z ], target, duration );
+                            }
+                        } );
+                    };
+
+                    buttonZoomIn.addEventListener( 'click', function() {
+                        api.zoom( 1 - factor, duration, minRadius, maxRadius );
+                    } );
+
+                    buttonZoomOut.addEventListener( 'click', function() {
+                        api.zoom( 1 + factor, duration, minRadius, maxRadius );
+                    } );
+                } );
+            };
+
+        // A function to load a model
+        function loadModel( client, urlid ) {
+            console.log( 'loading a model' );
+            client.init( urlid, {
+                success: success,
+                error: error,
+                internal: 1,
+                ui_infos: 0,
+                ui_controls: 0,
+                ui_stop: 1,
+                watermark: 1,
+                continuousRender: 0
+            });
+        }
+
+        loadModel( client, model );
+
+    </script>
+
+    <!-- Lastly, some CSS -->
+    <style type="text/css">
+
+        body {
+            margin: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Button style */
+        .buttons {
+            margin: 32px 0;
+            left: 50%;
+            bottom: 0;
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            transform: translate(-50%);
+            z-index: 1;
+            display: block;
+            position: absolute;
+        }
+
+        button {
+            width: 110px;
+            height: 25px;
+            line-height: 21px;
+            text-transform: uppercase;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            vertical-align: middle;
+            float: left;
+            margin-right: 5px;
+        }
+
+        #zoom-in {
+            background: #cc211f;
+        }
+
+        #zoom-out {
+            background: #1caad9;
+        }
+
+    </style>
+</body>

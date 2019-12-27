@@ -1,0 +1,135 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "shaders": {
+        "Main shader": {
+            "parameters": {
+                "Common Parameters": {
+                    "ao_intensity": 0.75,
+                    "emissive_intensity": 1,
+                    "horizonFade": 1.2999999523162842,
+                    "nbSamples": 16
+                },
+                "Parallax Occlusion Mapping": {
+                    "maxPOMSamples": 16,
+                    "minPOMSamples": 4,
+                    "pomStrength": 1,
+                    "usePOM": false
+                }
+            },
+            "shader": "pbr-metal-rough-with-alpha-blending",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "AddPanel1": {
+            "shader": "Main shader"
+        },
+        "AddPanelBottomLeft": {
+            "shader": "Main shader"
+        },
+        "AddPanelBottomRight01": {
+            "shader": "Main shader"
+        },
+        "AddPanelFrontTopLeft": {
+            "shader": "Main shader"
+        },
+        "AddPanelLargeLeft": {
+            "shader": "Main shader"
+        },
+        "AddPanelLargeRight": {
+            "shader": "Main shader"
+        },
+        "AddPanelMidLeft02": {
+            "shader": "Main shader"
+        },
+        "AddPanelMidLeft_1": {
+            "shader": "Main shader"
+        },
+        "AddPanelMidRight01": {
+            "shader": "Main shader"
+        },
+        "AddPanelMidRight2": {
+            "shader": "Main shader"
+        },
+        "AddPanelTopRight": {
+            "shader": "Main shader"
+        },
+        "AddPanelTopp": {
+            "shader": "Main shader"
+        },
+        "BenchFrame": {
+            "shader": "Main shader"
+        },
+        "BenchSeat": {
+            "shader": "Main shader"
+        },
+        "BracketSOundtouch": {
+            "shader": "Main shader"
+        },
+        "CenterLight": {
+            "shader": "Main shader"
+        },
+        "Chair_Frame": {
+            "shader": "Main shader"
+        },
+        "Chair_Material": {
+            "shader": "Main shader"
+        },
+        "Chrome": {
+            "shader": "Main shader"
+        },
+        "Extinguisher": {
+            "shader": "Main shader"
+        },
+        "Glass1": {
+            "shader": "Main shader"
+        },
+        "InteriorVentColor": {
+            "shader": "Main shader"
+        },
+        "Interior_Parts": {
+            "shader": "Main shader"
+        },
+        "RugColor": {
+            "shader": "Main shader"
+        },
+        "Seat_WhiteExt": {
+            "shader": "Main shader"
+        },
+        "SoundPanels": {
+            "shader": "Main shader"
+        },
+        "Speaker": {
+            "shader": "Main shader"
+        },
+        "TV1": {
+            "shader": "Main shader"
+        },
+        "TableLong": {
+            "shader": "Main shader"
+        },
+        "Tablet": {
+            "shader": "Main shader"
+        },
+        "TabletControl": {
+            "shader": "Main shader"
+        },
+        "WallSocketUSB": {
+            "shader": "Main shader"
+        },
+        "WeatherSealRubber": {
+            "shader": "Main shader"
+        },
+        "Wheel": {
+            "shader": "Main shader"
+        },
+        "WindowFrame": {
+            "shader": "Main shader"
+        },
+        "lambert3": {
+            "shader": "Main shader"
+        }
+    }
+}

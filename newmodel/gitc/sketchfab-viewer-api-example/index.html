@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sketchfab Viewer API example</title>
+    <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.0.0.js"></script>
+</head>
+
+<body>
+    <iframe src="" id="api-frame" width="640" height="400" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+    <script type="text/javascript">
+    // This example shows how to use the Sketchfab Viewer API
+    // See https://sketchfab.com/developers/viewer for the documentation
+
+    var iframe = document.getElementById( 'api-frame' );
+
+    var version = '1.0.0';
+    var urlid = '7w7pAfrCfjovwykkEeRFLGw5SXS'; // Model urlid
+    var client = new Sketchfab( version, iframe );
+
+    // Initialize the viewer with given model urlid
+    // For options, see https://sketchfab.com/developers/viewer/initialization
+    client.init( urlid, {
+
+        success: function onSuccess( api ){
+            // API is ready to use
+            // For the list of functions, see
+            // https://sketchfab.com/developers/viewer/functions
+            api.start();
+
+            // The 'viewerready' event is triggered when the model is loaded and ready
+            api.addEventListener('viewerready', function(){
+                console.log('Viewer is ready');
+            });
+        },
+
+        error: function onError() {
+            console.warn( 'Viewer error' );
+        }
+
+    } );
+    </script>
+
+    <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-22680456-16', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
+</html>

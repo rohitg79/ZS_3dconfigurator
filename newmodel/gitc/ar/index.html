@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchfab WebCam And Augmented Reality (AR) Prototype</title>
+    <link rel="stylesheet" type="text/css" href="../styles/sketchfab.css">
+    <link rel="stylesheet" type="text/css" href="style-0.0.1.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header--logo">
+            <a href="../">
+                <img src="../assets/sketchfab-logo.svg" alt="Sketchfab" width="120" class="header--image">
+                <span>Labs Experiments</span>
+            </a>
+        </h1>
+    </header>
+    <div class="app">
+        <div class="viewport">
+            <video id="video" autoplay></video>
+            <canvas height="240" width="320" id="rasterCanvas"></canvas>
+            <iframe id="viewer" width="100%" height="100%" src="about:blank" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+        </div>
+        <div id="controls" class="active">
+            <span class="toggle">
+                <span class="arrow">▼</span>
+            </span>
+            <div class="message --info">
+                Augmented Reality is now available in the Sketchfab app for iOS.<br>
+                <a href="https://blog.sketchfab.com/announcing-sketchfab-ar-ios/" target="_blank">Learn more</a>
+            </div>
+            <h1>Sketchfab Augmented Reality experiment</h1>
+            <div>
+                <label for="model">Enter a model ID:</label><br>
+                <input id="model" type="text" value="f7d347b6afb349b296bce9d0b336f95a" size="36">
+                <p>
+                    <button id="capture-button" class="button btn-primary">Load</button>
+                    <button id="stop-button" class="button btn-secondary">Stop</button>
+                    <button id="fullscreen-button" class="button btn-secondary">Fullscreen</button>
+                </p>
+            </div>
+            <p>You can also <a href="4.png" download>download a printable marker</a> for tracking</p>
+        </div>
+
+        <div id="debug"></div>
+    </div>
+</body>
+<script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.0.0.js"></script>
+<script type="text/javascript" src="http://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="JSARTToolkit.js"></script>
+<script src="main-0.1.0.js"></script>
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-22680456-16', 'auto');
+ga('send', 'pageview');
+</script>
+</html>

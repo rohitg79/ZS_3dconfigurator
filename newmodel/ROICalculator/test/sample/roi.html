@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>
+            Zenspace ROI Calculation
+        </title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="css/sb-admin.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+        <style>.row.space.cal-roi input {
+    border: 0px;
+}
+</style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            
+            <div id="page-wrapper">
+
+                <div class="row">
+                    <div class="col-lg-10">
+                        <h2 style="    text-align: center;
+    padding-bottom: 27px;">ROI Calculation</h2>
+                    </div>
+                    <!-- <div class="col-lg-2">
+                        <button class="btn btn-primary pull-right" id="show_formula" data-shown="0">Show Formula</button>
+                    </div> -->
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form id="basic_math">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>B4 Number of 4-Seater pods (50 sqft each, 7' x 7' in size)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="B4" name="B4" data-cell="B4" data-format="0,0[.]00" data-formula="" placeholder="Number of 4-Seater pods">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>C4 Number of 2-Seater pods (25 sqft each, 7' x 3.5' in size)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="C4" name="C4" data-cell="C4" data-format="0,0[.]00" data-formula="" placeholder="Number of 2-Seater pods">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>D4 How many free standing 49" touchscreen digital signage kiosks will you like to have?</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D4" name="D4" data-cell="D4" data-format="0,0[.]00" data-formula="" placeholder="Number of touchscrren & kiosks">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>E4 How many sofa/chair furnishing sets will you need from ZenSpace (Average $2,500 per set)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E4" name="E4" data-cell="E4" data-format="0,0[.]00" data-formula="" placeholder="Number of sofa/chair">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    here
+                                 <!--    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>F4 What kind of venue is  yours?</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="F4" name="F4" data-cell="F4" data-format="0,0[.]00" data-formula="" placeholder="Number of 2-Seater pods">
+                                            </div>
+                                        </div>
+                                        
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>G4 How many days is your venue operational in year?</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="G4" name="G4" data-cell="G4" data-format="0,0[.]00" data-formula="" placeholder="How many days?">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>H4 How many hours on an average do you operate in a day?</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="H4" name="H4" data-cell="H4" data-format="0,0[.]00" data-formula="" placeholder="Average hour's 2-Seater pods">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>I4 What hourly price will you like to charge per hour for a 2-Seater pod?</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="I4" name="I4" data-cell="I4" data-format="0,0[.]00" data-formula="" placeholder="Hourly price for 2 seat pod">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>J4 What hourly price will you like to charge per for a 4-Seater pod? </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="J4" name="J4" data-cell="J4" data-format="0,0[.]00" data-formula="" placeholder="Hourly price for 4-Seater pods">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>K4 Now is the guess work question: What % of time in a day do you expect the meeting pods to be utilized?</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="K4" name="K4" data-cell="K4" data-format="0,0[.]00" data-formula="" placeholder="What % a day pod to be utilized">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 box_desc">
+                                            <div class="form-group">
+                                                <label>L4  ZenSpace SmartPods powered business lounge offer a great branding and sponsorship opportunity. As per our data, you can generate over $500+ per day per pod if you attract business travelers all day along at your venue. Please suggest a % of the number of days your venue is operational and when you believe you can garner advertising revenue. </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="L4" name="L4" data-cell="L4" data-format="0,0[.]00" data-formula="" >
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                   
+                                </div>
+                            </div>
+
+                            <div class="mtsm4" style="margin-top: 5%!important;">
+                            </div>
+
+                            <div class="row space cal-roi" >
+                                <div class="col-md-12">
+
+                                     <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>Business Model</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_desc">
+                                            <div class="form-group">
+                                                <label>Straight Lease</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_desc">
+                                            <div class="form-group">
+                                                <label>Hybrid Business Model</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_desc">
+                                            <div class="form-group">
+                                                <label>Rev Share</label>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>Hourly Usage Revenue</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="C7" name="C7" data-cell="C7" data-format="$0,0[.]00" data-formula="G4*H4*(K4/100)*(B4*J4+C4*I4)" disabled>
+                                                
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D7" name="D7" data-cell="D7" data-format="$0,0[.]00" data-formula="(C7 * 60)/100" disabled>
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="col-md-2 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E7" name="E7" data-cell="E7" data-format="$0,0[.]00" data-formula="20%*C7" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>Advertising Revenue</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="C8" name="C8" data-cell="C8" data-format="$0,0[.]00" data-formula="G4*(L4/100)*500*(B4+C4+D4)" disabled>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D8" name="D8" data-cell="D8" data-format="$0,0[.]00" data-formula="60%*C8" disabled>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-2 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E8" name="E8" data-cell="E8" data-format="$0,0[.]00" data-formula="20%*C8" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>Total Revenue</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="C9" name="C9" data-cell="C9" data-format="$0,0[.]00" data-formula="C7+C8" disabled>             
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D9" name="D9" data-cell="D9" data-format="$0,0[.]00" data-formula="D7+D8" disabled>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-2 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E9" name="E9" data-cell="E9" data-format="$0,0[.]00" data-formula="E7+E8" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>Lease Price</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                            <input type="text" class="form-control input-sm text-right" id="C11" name="C11" data-cell="C11" data-format="$0,000" data-formula="B4*15000+C4*11000+D4*3000+E4*2500" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D11" name="D11" data-cell="D11" data-format="$0,0[.]00" data-formula="C11*50%" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-2 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E11" name="E11" data-cell="E11" data-format="$" data-formula="0" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>Maintenance cost of the pods</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="C12" name="C12" data-cell="C12" data-format="$0,0[.]00" data-formula="(B4+C4)*3000" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D12" name="D12" data-cell="D12" data-format="$0,0[.]00" data-formula="C12" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-2 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E12" name="E12" data-cell="E12" data-format="$0,0[.]00" data-formula="C12" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>Total Cost</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="C13" name="C13" data-cell="C13" data-format="$0,0[.]00" data-formula="C11+C12" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D13" name="D13" data-cell="D13" data-format="0,0[.]00" data-formula="D11+D12" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-2 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E13" name="E13" data-cell="E13" data-format="$0,0[.]00" data-formula="E11+E12" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>Gross Margin</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="C15" name="C15" data-cell="C15" data-format="$0,0[.]00" data-formula="C9-C13" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D15" name="D15" data-cell="D15" data-format="$0,0[.]00" data-formula="D9-D13" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-2 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E15" name="E15" data-cell="E15" data-format="$0,0[.]00" data-formula="E9-E13" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-2 box_desc">
+                                            <div class="form-group">
+                                                <label>GM%</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="C16" name="C16" data-cell="C16" data-format="%" data-formula="C15/C9" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-3 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="D16" name="D16" data-cell="D16" data-format="%" data-formula="D15/D9" disabled>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-2 box_input">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm text-right" id="E16" name="E16" data-cell="E16" data-format="%" data-formula="E15/E9" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                </div>
+                            </div>
+
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery-calx-sample-2.2.8.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script>
+            $('#basic_math').calx();
+
+            $('#show_formula').click(function(e){
+                e.preventDefault();
+
+                if($(this).attr('data-shown') == '0'){
+                    $('[data-formula],[data-cell]').each(function(){
+                        $(this).after('<span class="formula">'+$(this).attr('data-cell')+($(this).attr('data-formula') ? ' = '+$(this).attr('data-formula') : '')+'&nbsp;</span>');
+                    });
+
+                    $(this).attr('data-shown', 1).html('Hide Formula');
+                }else{
+                    $('span.formula').remove();
+                    $(this).attr('data-shown', 0).html('Show Formula');
+                }
+            });
+        </script>
+       
+    </body>
+</html>
