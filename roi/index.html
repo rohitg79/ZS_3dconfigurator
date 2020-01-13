@@ -379,7 +379,7 @@ alert($(this).attr('data-cell'));
                 } 
             });
             $('#G4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".g4").text("The value for this field can't be more than 365 and less than 100").delay(5000).fadeOut(100);
                 } 
