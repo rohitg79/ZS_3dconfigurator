@@ -331,49 +331,49 @@ alert($(this).attr('data-cell'));
             
        
             $('#B4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".b4").text("The value for this field can't be more than 100.").delay(5000).fadeOut(100);
                 } 
             });
             $('#C4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".c4").text("The value for this field can't be more than 100.").delay(5000).fadeOut(100);
                 } 
             });
             $('#D4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".d4").text("The value for this field can't be more than 100.").delay(5000).fadeOut(100);
                 } 
             });
             $('#E4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".e4").text("The value for this field can't be more than 100.").delay(5000).fadeOut(100);
                 } 
             });
             $('#J4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".j4").text("The value for this field can't be more than 250 and less than 10").delay(5000).fadeOut(100);
                 } 
             });
             $('#I4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".i4").text("The value for this field can't be more than 200 and less than 10").delay(5000).fadeOut(100);
                 } 
             });
             $('#K4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".k4").text("The value for this field can't be more than 100 and less than 25").delay(5000).fadeOut(100);
                 } 
             });
             $('#L4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".l4").text("The value for this field can't be more than 100.").delay(5000).fadeOut(100);
                 } 
@@ -385,7 +385,7 @@ alert($(this).attr('data-cell'));
                 } 
             });
             $('#H4').on('keyup', function(){ 
-                if ($(this).val() > $(this).attr('max')*1) { 
+                if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
                     $(this).val($(this).attr('max')); 
                     $(".h4").text("The value for this field can't be more than 24 and less than 2").delay(5000).fadeOut(100);
                 } 
