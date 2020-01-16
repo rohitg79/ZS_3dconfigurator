@@ -1,8 +1,3 @@
-.w-checkbox {
-  display: block;
-  margin-bottom: 5px;
-  padding-left: 20px;
-}
 
 .w-checkbox::before {
   content: ' ';
