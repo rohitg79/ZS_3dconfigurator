@@ -57,7 +57,7 @@ h3 {
 .content {
   position: absolute;
   left: 0%;
-  top: 100px;
+  /*top: 100px;*/
   right: 0%;
   bottom: auto;
   display: -webkit-box;
