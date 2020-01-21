@@ -17,9 +17,20 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style type="text/css">
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
         .result-bo, .result-tr, .result-tc, .result-gm {
             border: none;
-            width: 71px;
+            width: auto;
         }
         .result-tr, .result-tc {
             background-color: #fff5dd !important;
@@ -141,7 +152,7 @@
           <div class="form-row">
             <div class="field-text"><label for="name-4" class="field-name">How many days is your venue operational in a year?</label></div>
             <div class="field-wrapp">
- <input type="number" class="text-field w-input" maxlength="256" min="100" max="365" id="G4" name="G4" data-cell="G4" data-format="0,0[.]00" data-formula="" placeholder="0" value="200">
+ <input type="number" class="text-field w-input" maxlength="256" min="200" max="365" id="G4" name="G4" data-cell="G4" data-format="0,0[.]00" data-formula="" placeholder="0" value="200">
             </div>
           </div><span class="g4"></span>
           <div class="form-row">
@@ -158,7 +169,7 @@
             <h3 class="heading">What kind of venue is yours?</h3>
           </div>
           <div class="form-row venue">
-            <div class="checkbox-item"><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 1" id="radio-1" name="Radio-1" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Coffee Shop Chain</span></label><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 2" id="radio-2" name="Radio-2" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Convention Center</span></label><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 3" id="radio-3" name="Radio-3" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Hotel Lobby</span></label><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 4" id="radio-4" name="Radio-4" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Airport</span></label><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 5" id="radio-5" name="Radio-5" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Other</span></label></div>
+            <div class="checkbox-item"><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 1" id="radio-1" name="Radio" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Coffee Shop Chain</span></label><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 2" id="radio-2" name="Radio" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Convention Center</span></label><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 3" id="radio-3" name="Radio" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Hotel Lobby</span></label><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 4" id="radio-4" name="Radio" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Airport</span></label><label class="radio-button-field w-radio"><input type="radio" data-name="Radio 5" id="radio-5" name="Radio" value="Radio" class="w-form-formradioinput w-radio-input"><span class="field-name w-form-label">Other</span></label></div>
           </div>
         </form>
         <div class="w-form-done">
@@ -418,7 +429,7 @@
             });
             $('#G4').on('keyup', function(){ 
                 if ($(this).val() > $(this).attr('max')*1 || $(this).val() < $(this).attr('min')*1) { 
-                    $(this).val($(this).attr('max')); 
+                  //  $(this).val($(this).attr('max')); 
                     $(".g4").text("The value for this field can't be more than 365 and less than 100").delay(5000).fadeOut(100);
                 } 
             });

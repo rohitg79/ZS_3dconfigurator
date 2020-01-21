@@ -386,23 +386,23 @@ client.init(uid, {
 function initGui() {
     var controls = document.getElementById('options');
     var buttonsText = '';
-    buttonsText += '<div class="header"><img src="images/zenspace-logo.svg" alt=""></div><div class="options-type"><h5 class="heading">SmartPod Types</h5><div data-duration-in="300" data-duration-out="100" class="w-tabs"><div class="button-row w-tab-menu">';
+    buttonsText += '<div class="options-type"><h5 class="heading">SmartPod Types</h5><div data-duration-in="300" data-duration-out="100" class="w-tabs"><div class="button-row w-tab-menu">';
 
-    buttonsText += '<a data-w-tab="Tab 1" class="option-button w-inline-block w-tab-link w--current" id="active1"><img src="images/2seat.svg" alt="" class="option-button-icon"><div class="option-button-text">2 Seat SmartPod</div></a>';
+    buttonsText += '<a data-w-tab="Tab 1" class="option-button w-inline-block w-tab-link w--current" id="active1"><img src="https://uploads-ssl.webflow.com/5dcc4fe23d746f1fc6382233/5e204b2c76a59b76059a6988_2seat.svg" alt="" class="option-button-icon"><div class="option-button-text">2 Seat SmartPod</div></a>';
     
-    buttonsText += '<a data-w-tab="Tab 2" class="option-button w-inline-block w-tab-link" id="active2"><img src="images/4seat.svg" alt="" class="option-button-icon"><div class="option-button-text">4 Seat SmartPod</div></a></div></div></div>';
+    buttonsText += '<a data-w-tab="Tab 2" class="option-button w-inline-block w-tab-link" id="active2"><img src="https://uploads-ssl.webflow.com/5dcc4fe23d746f1fc6382233/5e204b2c76a59babe99a6989_4seat.svg" alt="" class="option-button-icon"><div class="option-button-text">4 Seat SmartPod</div></a></div></div></div>';
     
     buttonsText += '<div class="options-type"><h5 class="heading">Ceiling Type</h5><div data-duration-in="300" data-duration-out="100" class="w-tabs"><div class="button-row w-tab-menu">';
     
-    buttonsText += '<a data-w-tab="Tab 1" class="option-button w-inline-block w-tab-link w--current" id="act1"><img src="images/fire.svg" alt="" class="option-button-icon"><div class="option-button-text">Close Roof With Extinguisher</div></a>';
+    buttonsText += '<a data-w-tab="Tab 1" class="option-button w-inline-block w-tab-link w--current" id="act1"><img src="https://uploads-ssl.webflow.com/5dcc4fe23d746f1fc6382233/5e204b2c76a59b74959a698d_fire.svg" alt="" class="option-button-icon"><div class="option-button-text">Close Roof With Extinguisher</div></a>';
     
-    buttonsText += '<a data-w-tab="Tab 2" class="option-button w-inline-block w-tab-link" id="act2"><img src="images/vent.svg" alt="" class="option-button-icon" ><div class="option-button-text">Vented Roof</div></a>';
+    buttonsText += '<a data-w-tab="Tab 2" class="option-button w-inline-block w-tab-link" id="act2"><img src="https://uploads-ssl.webflow.com/5dcc4fe23d746f1fc6382233/5e204b2c76a59b9b819a698e_vent.svg" alt="" class="option-button-icon" ><div class="option-button-text">Vented Roof</div></a>';
     
-    buttonsText += '<a data-w-tab="Tab 3" class="option-button w-inline-block w-tab-link" id="act3"><img src="images/water.svg" alt="" class="option-button-icon"><div class="option-button-text">Closed Roof With Sprinkler Hose</div></a>';
+    buttonsText += '<a data-w-tab="Tab 3" class="option-button w-inline-block w-tab-link" id="act3"><img src="https://uploads-ssl.webflow.com/5dcc4fe23d746f1fc6382233/5e204b2c76a59b92d69a698c_water.svg" alt="" class="option-button-icon"><div class="option-button-text">Closed Roof With Sprinkler Hose</div></a>';
     
-    buttonsText += '<a data-w-tab="Tab 4" class="option-button w-inline-block w-tab-link" id="act4"><img src="images/open-roof.svg" alt="" class="option-button-icon"><div class="option-button-text">Open Roof</div></a>';
+    buttonsText += '<a data-w-tab="Tab 4" class="option-button w-inline-block w-tab-link" id="act4"><img src="https://uploads-ssl.webflow.com/5dcc4fe23d746f1fc6382233/5e204b2c76a59b4cd79a698a_open-roof.svg" alt="" class="option-button-icon"><div class="option-button-text">Open Roof</div></a>';
     
-    buttonsText += '<a data-w-tab="Tab 5" class="option-button w-inline-block w-tab-link" id="act5"><img src="images/closed-roof.svg" alt="" class="option-button-icon"><div class="option-button-text">Close Roof</div></a>';
+    buttonsText += '<a data-w-tab="Tab 5" class="option-button w-inline-block w-tab-link" id="act5"><img src="https://uploads-ssl.webflow.com/5dcc4fe23d746f1fc6382233/5e204b2c76a59b66459a698b_closed-roof.svg" alt="" class="option-button-icon"><div class="option-button-text">Close Roof</div></a>';
 
     buttonsText += '</div>';
     buttonsText += '<div class="tabs-content-2 w-tab-content"><div data-w-tab="Tab 1" class="w-tab-pane w--tab-active"></div><div data-w-tab="Tab 2" class="w-tab-pane"></div><div data-w-tab="Tab 3" class="w-tab-pane"></div><div data-w-tab="Tab 4" class="w-tab-pane"></div></div></div></div><div class="options-type features"><div class="w-form">';
