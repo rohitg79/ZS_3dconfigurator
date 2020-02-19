@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google Place</title>
+	<style type="text/css">
+		#distance,#distance2,#time1,#time2{
+			background: yellow;
+width: 160px;
+display: inline-block;
+height: 15px;
+		}
+	</style>
+</head>
+<body>
+Start Address : <input type="text" placeholder="Start Address" id="startaddress">
+<br>
+End Address : <input type="text" placeholder="End Address" id="endaddress">
+<br>
+Distance : - In Text Format Value <span id="distance"></span> Only Numeric Value in Metres <span id="distance2"></span>
+<br>
+Time : - In Text Format Value <span id="time1"></span> Only Numeric Value in Seconds <span id="time2"></span>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=places&amp;key=AIzaSyBpsj7lsgX7efdby6_52F5d6YIS4OGG-4M"></script>
+<script type="text/javascript">
+
+function getDistance(){
+	
+	  var distanceService = new google.maps.DistanceMatrixService();
+        distanceService.getDistanceMatrix({
+                origins: [document.getElementById('startaddress').value],
+                destinations: [document.getElementById('endaddress').value],
+                travelMode: "DRIVING",
+                unitSystem: google.maps.UnitSystem.METRIC,
+                durationInTraffic: true,
+                avoidHighways: false,
+                avoidTolls: false
+            },
+            function (response, status) {
+                if (status !== google.maps.DistanceMatrixStatus.OK) {
+                    console.log('Error:', status);
+                } else {
+                    console.log(response);
+                    document.getElementById('distance').innerHTML=response.rows[0].elements[0].distance.text;
+                    document.getElementById('distance2').innerHTML=response.rows[0].elements[0].distance.value;
+                    document.getElementById('time1').innerHTML=response.rows[0].elements[0].duration.text;
+                    document.getElementById('time2').innerHTML=response.rows[0].elements[0].duration.value;
+
+                }
+            });
+    }
+
+
+	function AutoComplete() {
+                 //=============Input Fields 1 and Select it========
+               var input1 = document.getElementById('startaddress');
+            //===============adding google location search event=================
+            new google.maps.places.Autocomplete(input1);
+
+                 //=============Input Fields 2 and Select it========
+               var input2 = document.getElementById('endaddress');
+            //===============adding google location search event=================
+            new google.maps.places.Autocomplete(input2);
+	}
+
+//======================Register Focus out Listener on Input Fields so we calculate distance and Time
+document.getElementById("startaddress").addEventListener("focusout", getDistance);
+document.getElementById("endaddress").addEventListener("focusout", getDistance);
+
+
+
+//===========================Call The Autocomplete Function of Our Page Ready===============
+	    google.maps.event.addDomListener(window, 'load', AutoComplete);
+
+</script>
+</body>
+</html>
+
